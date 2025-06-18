@@ -1,0 +1,241 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #f5f7fa 0%, #e2e8f0 100%);
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.t-shirt-shop {
+  max-width: 1200px;
+  width: 100%;
+}
+
+.shop-header {
+  text-align: left;
+  margin-bottom: 40px;
+  padding: 20px;
+}
+
+.shop-title {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  background: linear-gradient(90deg, #4e54c8 0%, #8f94fb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}
+
+.shop-subtitle {
+  font-size: 1.3rem;
+  color: #4a5568;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* 3-column grid layout */
+.tshirt-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* T-shirt card styling */
+.tshirt-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.tshirt-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.tshirt-image-container {
+  height: 240px;
+  overflow: hidden;
+  position: relative;
+}
+
+.tshirt-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.tshirt-card:hover .tshirt-image {
+  transform: scale(1.05);
+}
+
+.stock-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  background: #4e54c8;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.out-of-stock {
+  background: #e53e3e;
+}
+
+.tshirt-info {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.tshirt-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #1a202c;
+}
+
+.tshirt-price {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #4e54c8;
+  margin-bottom: 15px;
+}
+
+.stock-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem;
+  background: #f7fafc;
+  border-radius: 10px;
+  margin-top: auto;
+  border: 1px solid #e2e8f0;
+}
+
+.stock-label {
+  font-weight: 600;
+  color: #4a5568;
+}
+
+.stock-value {
+  font-weight: 700;
+  color: #2d3748;
+}
+
+.out-of-stock-text {
+  color: #e53e3e;
+  font-weight: 700;
+}
+
+.purchase-section {
+  padding: 0 1.5rem 1.5rem;
+}
+
+.quantity-control {
+  display: flex;
+  gap: 15px;
+}
+
+.quantity-select {
+  flex: 1;
+  padding: 0.8rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.quantity-select:focus {
+  outline: none;
+  border-color: #4e54c8;
+}
+
+.buy-btn {
+  flex: 1;
+  background: linear-gradient(90deg, #4e54c8 0%, #8f94fb 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 0.8rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 15px rgba(78, 84, 200, 0.3);
+}
+
+.buy-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(78, 84, 200, 0.4);
+}
+
+.buy-btn:disabled {
+  background: #a0aec0;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.out-of-stock-badge {
+  display: block;
+  text-align: center;
+  background: #e53e3e;
+  color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .tshirt-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .tshirt-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .shop-title {
+    font-size: 2.5rem;
+  }
+
+  .shop-subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .quantity-control {
+    flex-direction: column;
+  }
+
+  .shop-title {
+    font-size: 2rem;
+  }
+}
